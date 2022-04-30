@@ -1,5 +1,5 @@
-const styles = require('./styles')
-const babel  = require('./babel')
+const styles = require('./loader.styles')
+const babel  = require('./loader.babel')
 
 module.exports = [
   babel(),

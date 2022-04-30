@@ -1,15 +1,15 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const {isDevelopment}      = require('../utils/env')
 
 module.exports = ({module = false, preprocessor = false} = {}) => [
-  MiniCssExtractPlugin.loader,
-  // 'style-loader',
+  isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
   {
     loader:  'css-loader',
     options: {
       sourceMap: true,
       ...(module && {
         modules: {
-          localIdentName: '[path][name]__[local]__[hash:base64:5]',
+          localIdentName: '[local]__[hash:base64:5]',
         },
       }),
     },
